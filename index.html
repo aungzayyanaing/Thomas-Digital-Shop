@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thomas Digital Shop | Premium Myanmar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+	vercel --prod
+        :root { --primary-blue: #3b82f6; --void-black: #050505; --gold: #fbbf24; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--void-black); color: #fff; overflow-x: hidden; scroll-behavior: smooth; }
+        
+        .void-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 50% 50%, #0a0a0c 0%, #000 100%); }
+        .star { position: absolute; background: white; border-radius: 50%; opacity: 0.3; animation: twinkle var(--duration) infinite; }
+        @keyframes twinkle { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.7; } }
+
+        .fade-in { animation: fadeIn 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .hero-glow { animation: glow 4s infinite alternate; }
+        @keyframes glow { from { text-shadow: 0 0 10px rgba(59,130,246,0.2); } to { text-shadow: 0 0 30px rgba(59,130,246,0.6); } }
+
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        
+        .app-card { background: rgba(255, 255, 255, 0.04); border-radius: 24px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; border: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden; }
+        .app-card:hover { border-color: var(--primary-blue); transform: translateY(-8px); background: rgba(59, 130, 246, 0.1); box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.3); }
+        
+        .app-icon-img { width: 64px; height: 64px; border-radius: 16px; object-fit: cover; margin-bottom: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.4); }
+
+        .price-row { background: rgba(255,255,255,0.02); border-radius: 16px; padding: 14px 20px; border: 1px solid rgba(255,255,255,0.05); margin-bottom: 8px; transition: 0.3s; }
+        .btn-qty { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: var(--primary-blue); color: white; border: none; }
+        
+        .persistent-footer { position: fixed; bottom: 0; left: 0; width: 100%; z-index: 50; padding: 1.5rem; background: linear-gradient(to top, rgba(0,0,0,1) 60%, transparent); }
+        .rules-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 30px; padding: 2rem; margin-top: 3rem; text-align: left; }
+        
+        .note-container { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; padding: 25px; max-width: 600px; margin: 20px auto; }
+        .inner-note-box { border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 15px; margin-bottom: 15px; }
+
+        .online-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; display: inline-block; box-shadow: 0 0 10px #22c55e; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.3); opacity: 0.7; } 100% { transform: scale(1); opacity: 1; } }
+        
+        .cat-tag { font-size: 9px; padding: 4px 10px; border-radius: 20px; background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+    </style>
+</head>
+<body>
+
+    <div class="void-container" id="void"></div>
+
+    <nav class="fixed w-full z-50 py-4 px-6 md:px-10 flex flex-col md:flex-row justify-between items-center glass gap-4">
+        <div class="text-xl font-extrabold tracking-tighter cursor-pointer" onclick="showSlide('home')">
+            THOMAS <span class="text-blue-500">DIGITAL</span>
+        </div>
+        <div class="flex items-center space-x-6 text-[10px] font-bold uppercase tracking-widest">
+            <button onclick="showSlide('home')" class="hover:text-blue-500 transition">HOME</button>
+            <button onclick="showSlide('shop-main')" class="hover:text-blue-500 transition">STORE</button>
+            <button onclick="showSlide('review')" class="hover:text-yellow-500 transition">REVIEW</button>
+            <div class="flex items-center gap-2 border-l border-white/10 pl-4">
+                <span class="online-dot"></span>
+                <span class="text-[#22c55e] text-[9px]">Online Active Now</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative z-10">
+        <section id="slide-home" class="fade-in pt-40 md:pt-32 pb-20 px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-10 tracking-tighter hero-glow leading-tight">
+                    WELCOME <br>
+                    <span class="text-blue-500">THOMAS DIGITAL SHOP</span>
+                </h1>
+
+                <div class="flex flex-wrap justify-center gap-3 mb-12">
+                    <div class="glass px-5 py-3 rounded-2xl border-white/5 flex items-center gap-2">
+                        <i class="fas fa-robot text-blue-500"></i>
+                        <span class="text-[10px] font-bold tracking-widest uppercase">AI Tools</span>
+                    </div>
+                    <div class="glass px-5 py-3 rounded-2xl border-white/5 flex items-center gap-2">
+                        <i class="fas fa-shield-alt text-blue-500"></i>
+                        <span class="text-[10px] font-bold tracking-widest uppercase">Premium VPN</span>
+                    </div>
+                    <div class="glass px-5 py-3 rounded-2xl border-white/5 flex items-center gap-2">
+                        <i class="fas fa-wand-magic-sparkles text-blue-500"></i>
+                        <span class="text-[10px] font-bold tracking-widest uppercase">Editing Pro</span>
+                    </div>
+                    <div class="glass px-5 py-3 rounded-2xl border-white/5 flex items-center gap-2">
+                        <i class="fas fa-credit-card text-blue-500"></i>
+                        <span class="text-[10px] font-bold tracking-widest uppercase">Global Pay</span>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="rules-card">
+                        <h3 class="text-blue-500 font-bold mb-4 uppercase tracking-widest flex items-center gap-2">
+                            <i class="fas fa-clock"></i> Shop Opening Time | Schedule 🗓
+                        </h3>
+                        <div class="space-y-2 text-sm text-gray-300 font-medium">
+                            <div class="flex justify-between border-b border-white/5 pb-1"><span>Mon - Fri:</span> <span>4:30PM - 12:00AM</span></div>
+                            <div class="flex justify-between border-b border-white/5 pb-1"><span>Saturday:</span> <span>9:30AM - 12:00AM</span></div>
+                            <div class="flex justify-between text-red-500"><span>Sunday:</span> <span>OFF</span></div>
+                        </div>
+                    </div>
+
+                    <div class="rules-card">
+                        <h3 class="text-blue-400 font-bold mb-4 uppercase tracking-widest flex items-center gap-2">
+                            <i class="fas fa-check-circle"></i> ဆောင်ရန် <i class="fas fa-shield-halved text-blue-400"></i>
+                        </h3>
+                        <ul class="text-xs space-y-3 text-gray-300 font-medium">
+                            <li>• လိုချင်တဲ့ Digital Product ကိုရေးပေးပါ။</li>
+                            <li>• Account Error ရှိပါက Screenshot ချက်ချင်းပြပါ။</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-16 flex flex-col md:flex-row items-center justify-center gap-6">
+                    <a href="https://t.me/Thomas_Shops" target="_blank" class="bg-[#229ED9] px-12 py-5 rounded-[24px] font-bold text-white hover:scale-105 transition shadow-xl shadow-blue-500/20 flex items-center gap-3">
+                        <i class="fab fa-telegram-plane text-2xl"></i> Contact Now
+                    </a>
+                    <button onclick="showSlide('shop-main')" class="bg-blue-600 px-16 py-5 rounded-2xl font-bold hover:scale-105 transition shadow-2xl shadow-blue-500/30 flex items-center gap-3">
+                        <i class="fas fa-shopping-bag"></i> SHOP NOW
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="slide-shop-main" class="hidden fade-in pt-32 px-6 md:px-20 pb-20">
+            <div id="main-grid-container" class="space-y-12">
+                </div>
+        </section>
+
+        <section id="slide-product-detail" class="hidden fade-in pt-32 px-6 pb-20">
+            <div class="max-w-2xl mx-auto">
+                <button onclick="showSlide('shop-main')" class="text-gray-500 text-xs hover:text-white uppercase tracking-widest font-bold flex items-center gap-2 mb-10 transition">
+                    <i class="fas fa-arrow-left"></i> Back to Store
+                </button>
+                <div class="text-center mb-12">
+                    <img id="detail-img" src="" class="w-24 h-24 rounded-[28px] mx-auto mb-6 shadow-2xl border border-white/10">
+                    <h2 id="detail-name" class="text-4xl font-extrabold mb-2 tracking-tight"></h2>
+                    <p id="detail-desc" class="text-gray-500 text-xs leading-relaxed"></p>
+                </div>
+                <div id="price-container" class="space-y-6"></div>
+            </div>
+        </section>
+
+        <section id="slide-review" class="hidden fade-in pt-32 px-6 pb-20">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2 class="text-4xl font-extrabold mb-4 tracking-tight">Verified <span class="text-yellow-500">Customer Reviews</span></h2>
+                <div id="reviews-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-left mt-12"></div>
+            </div>
+        </section>
+
+        <section id="slide-note-rules" class="hidden fade-in pt-32 px-6 pb-20">
+            <div class="note-container">
+                <h2 class="text-2xl font-bold mb-2">Note</h2>
+                <p class="text-yellow-500 text-xs font-bold mb-6">Please read this before continue</p>
+                <div class="inner-note-box text-[12px] space-y-2">
+                    <p class="text-yellow-500 font-bold uppercase">We only accept KBZpay & Wave pay</p>
+                    <p class="font-bold text-white">KBZpay-09650023587 <br><span class="text-yellow-500">(YEL THWAY AUNG)</span></p>
+                    <p class="font-bold text-white">Wave - 09758487380 <br><span class="text-yellow-500">(Myint Myint Naing)</span></p>
+                </div>
+                <button onclick="showSlide('receipt')" class="w-full bg-blue-500 text-white font-black py-3 rounded-xl mt-4 hover:bg-blue-400 transition">I understand</button>
+            </div>
+        </section>
+
+        <section id="slide-receipt" class="hidden fade-in pt-32 px-6 pb-40">
+            <div class="max-w-md mx-auto">
+                <div class="glass p-8 rounded-[40px] border-white/10 shadow-2xl">
+                    <div class="flex items-center justify-center mb-6">
+                        <i class="fas fa-file-invoice-dollar text-3xl text-blue-500"></i>
+                    </div>
+                    <h3 class="text-center font-bold text-lg mb-8 uppercase tracking-widest">Order Receipt</h3>
+                    <div id="receipt-details" class="bg-white/5 p-6 rounded-3xl font-mono text-[13px] mb-6 whitespace-pre-wrap leading-relaxed border border-white/5"></div>
+                    <button id="copy-btn" onclick="copyReceipt()" class="w-full bg-blue-600 text-white py-4 rounded-2xl font-bold mb-4 hover:bg-blue-500 transition shadow-lg shadow-blue-500/20">
+                        <i class="fas fa-copy mr-2"></i> Copy Order Info
+                    </button>
+                    <a href="https://t.me/Thomas_Shops" target="_blank" class="block text-center border border-white/10 py-4 rounded-2xl font-bold hover:bg-white/5 transition mb-4">
+                        <i class="fab fa-telegram-plane mr-2"></i> Message Admin
+                    </a>
+                    <button onclick="clearCart()" class="w-full text-center text-gray-500 font-bold text-xs uppercase tracking-widest hover:text-white transition">
+                        <i class="fas fa-arrow-left mr-2"></i> Back to Store
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="global-checkout-bar" class="hidden persistent-footer">
+        <div class="max-w-2xl mx-auto glass p-4 rounded-[30px] flex justify-between items-center border-blue-500/20 shadow-2xl">
+            <div class="flex items-center gap-6 px-4">
+                <button onclick="clearCart()" class="text-gray-500 hover:text-red-500 transition"><i class="fas fa-trash-can"></i></button>
+                <div>
+                    <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Grand Total</p>
+                    <p class="text-lg font-bold text-white"><span id="footer-total">0</span> Ks</p>
+                </div>
+            </div>
+            <button onclick="showSlide('note-rules')" class="bg-blue-600 px-10 py-4 rounded-2xl font-bold text-sm shadow-xl shadow-blue-500/20 active:scale-95 transition flex items-center gap-3">
+                <i class="fas fa-shopping-cart"></i> PAY NOW
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const categories = {
+            "AI Tools": ["ChatGPT", "Gemini Veo3", "Perplexity AI", "NOTE BOOK LM"],
+            "VPN": ["Express VPN", "Outline VPN", "V2Box - Vray", "NordVpn", "Surfshark Vpn", "HMA VPN"],
+            "Editing APPS": ["Capcut Pro", "Alight Motion", "Canva Pro", "Piscart", "Remini"],
+            "Design & Enhancement": ["Wink"],
+            "Global Payments APPS": ["Paypal", "Wise", "Payoneer"],
+            "Social & Media": ["Tiktok Japan", "Spotify", "YouTube Premium", "Zoom"],
+            "Telegram & Storage": ["Telegram Premium", "Telegram Boosting", "TeraBox"],
+            "Education": ["Duolingo Super"]
+        };
+
+        const products = {
+            "Express VPN": { 
+                img: "https://play-lh.googleusercontent.com/CnGsOmhIKfo1_IAnCUxAYXBaxkJ11rQXqPAGU_t29S6nVsrzTx-3OjMWFf2fk_b7u3g=s256-rw", desc: "Fast & Private VPN", 
+                categories: [
+                    { title: "1 Month", items: [{n: "1 Device", p: 7000, d: "1 Month"}, {n: "2 Devices", p: 14000, d: "1 Month"}, {n: "5 Devices", p: 32000, d: "1 Month"}]},
+                    { title: "3 Months", items: [{n: "1 Device", p: 22000, d: "3 Months"}, {n: "2 Devices", p: 34000, d: "3 Months"}, {n: "5 Devices", p: 67000, d: "3 Months"}]},
+                    { title: "6 Months", items: [{n: "1 Device", p: 32000, d: "6 Months"}, {n: "2 Devices", p: 66000, d: "6 Months"}, {n: "5 Devices", p: 170000, d: "6 Months"}]},
+                    { title: "1 Year", items: [{n: "1 Device", p: 75000, d: "1 Year"}, {n: "2 Devices", p: 180000, d: "1 Year"}, {n: "5 Devices", p: 270000, d: "1 Year"}]}
+                ]
+            },
+            "NordVpn": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCm2kKlJBjksQRTXvFYTQGbwoMpX21cqFi5g&s", desc: "Premium Security VPN",
+                categories: [
+                    { title: "Share Plan", items: [{n: "1 Year (Myanmar မသုံးမရပါ)", p: 40000, d: "1 Year"}]},
+                    { title: "Private Plan", items: [{n: "3 Months (Myanmar မသုံးမရပါ)", p: 58000, d: "3 Months"}]}
+                ]
+            },
+            "Surfshark Vpn": {
+                img: "https://ap-south-1.linodeobjects.com/arektacoinstore/ss", desc: "Secure Browsing",
+                categories: [
+                    { title: "Share Plan", items: [{n: "1 Month (Myanmar မသုံးမရပါ)", p: 15500, d: "1 Month"}, {n: "2 Months (Myanmar မသုံးမရပါ)", p: 17000, d: "2 Months"}]},
+                    { title: "Private Plan", items: [{n: "2 Months (Myanmar မသုံးမရပါ)", p: 44000, d: "2 Months"}]}
+                ]
+            },
+            "HMA VPN": {
+                img: "https://play-lh.googleusercontent.com/rFhtF_v2VRQkjpSi7Q8SzHsocNNnrk3IME2T_ERIr6GtyTUL8lXIWTTd3TKqAlfDZlA", desc: "HideMyAss VPN",
+                categories: [{ title: "Private Plan", items: [{n: "1 Month", p: 17000, d: "1 Month"}] }]
+            },
+            "Outline VPN": { 
+                img: "https://play-lh.googleusercontent.com/hBVHHh-aVLWPsgDP8JMqt0Ps3zkBEH-NvYuMaNOKO09oJYwSpC1Bx8WulHTaamj-Z7WF", desc: "Fast Outline Keys", 
+                categories: [{ title: "1 Month Only", items: [{n: "1 Device", p: 13000, d: "1 Month"}, {n: "2 Devices", p: 15000, d: "1 Month"}, {n: "5 Devices", p: 20000, d: "1 Month"}] }]
+            },
+            "V2Box - Vray": { 
+                img: "https://play-lh.googleusercontent.com/kVeisXWkT4oRMDsZbFrY7XXJvnxHJ7PnQFE71XCcCWAoeOAg5G3HJRDp4Ro3Xbc3WA=w240-h480-rw", desc: "V2Ray High Speed", 
+                categories: [{ title: "1 Month Only", items: [{n: "1 Device", p: 15000, d: "1 Month"}, {n: "2 Devices", p: 20000, d: "1 Month"}, {n: "5 Devices", p: 33000, d: "1 Month"}] }]
+            },
+            "ChatGPT": { 
+                img: "https://static.vecteezy.com/system/resources/previews/024/558/807/non_2x/openai-chatgpt-logo-icon-free-png.png", desc: "Plus & Business", 
+                categories: [
+                    { title: "Personal Plus", items: [{n: "1 Device (Private)", p: 54000, d: "1 Month"}]},
+                    { title: "Business Plus", items: [{n: "Invite Own Mail", p: 100000, d: "1 Month"}, {n: "Own", p: 120000, d: "1 Month"}, {n: "Own (Full Warranty)", p: 134000, d: "1 Month"}]}
+                ]
+            },
+            "Gemini Veo3": { 
+                img: "https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/gemini-color.png", desc: "Google AI Advanced", 
+                categories: [
+                    { title: "Private (2TB Storage)", items: [{n: "1 Month", p: 140000, d: "1 Month"}, {n: "3 Months", p: 24000, d: "3 Months"}]},
+                    { title: "Own Mail", items: [{n: "1 Month", p: 20000, d: "1 Month"}, {n: "3 Months", p: 31000, d: "3 Months"}]}
+                ]
+            },
+            "Perplexity AI": { 
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuJtpuSPxCai6OZE-p61Ivmz9A_QSa414g7Q&s", desc: "AI Search Engine", 
+                categories: [{ title: "1 Month", items: [{n: "1 Device (Share)", p: 14000, d: "1 Month"}, {n: "1 Device (Private)", p: 25000, d: "1 Month"}, {n: "1 Device (Own Mail)", p: 33000, d: "1 Month"}] }]
+            },
+            "Wink": {
+                img: "https://cdn.aptoide.com/imgs/e/5/2/e52547ffd8d39f876386429331e7da38_icon.png", desc: "AI Video Enhancement",
+                categories: [
+                    { title: "Share Plan", items: [{n: "1 Month", p: 10000, d: "1 Month"}, {n: "1 Year", p: 100000, d: "1 Year"}]},
+                    { title: "Private Plan", items: [{n: "1 Week", p: 5000, d: "1 Week"}, {n: "1 Month", p: 31000, d: "1 Month"}]},
+                    { title: "Private (Own Mail)", items: [{n: "1 Month", p: 30000, d: "1 Month"}]}
+                ]
+            },
+            "Remini": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNWdEHuLpguV3_yFFNOcUceTdrA4r9ORyhUA&s", desc: "AI Photo Enhancer",
+                categories: [
+                    { title: "Share Plan", items: [{n: "1 Month (Web)", p: 5000, d: "1 Month"}, {n: "1 Year (APK Lite)", p: 20000, d: "1 Year"}, {n: "1 Year (APK Pro)", p: 31000, d: "1 Year"}]},
+                    { title: "Private Plan", items: [{n: "1 Month (Web)", p: 15000, d: "1 Month"}]}
+                ]
+            },
+            "TeraBox": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlR2O1VJffzz2q3Njwsi6UKllFaBeoDGByCg&s", desc: "Cloud Storage",
+                categories: [{ title: "Sharing Plan", items: [{n: "1 Year (2TB)", p: 25000, d: "1 Year"}] }]
+            },
+            "Capcut Pro": { 
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTitBmejj75sDxuPXgG5HAaO629PwWW0ygn7g&s", desc: "Pro Video Editor", 
+                categories: [{ title: "1 Month", items: [{n: "1 Device", p: 25000, d: "1 Month"}, {n: "2 Devices", p: 32000, d: "1 Month"}] }]
+            },
+            "Alight Motion": { 
+                img: "https://play-lh.googleusercontent.com/OU0BlP8C9-V7ECl2crma7B48nzDbK7liSLjn0j_fpTlyWG6qyEE-mw_KFZ9aOXF0a3w", desc: "Motion Graphics", 
+                categories: [
+                    { title: "Share Account", items: [{n: "1 Device (9 Months)", p: 10000, d: "9 Months"}, {n: "1 Device (1 Year)", p: 15000, d: "1 Year"}]},
+                    { title: "Private Account", items: [{n: "1 Device (9 Months)", p: 20000, d: "9 Months"}, {n: "1 Device (1 Year)", p: 25000, d: "1 Year"}]}
+                ]
+            },
+            "Piscart": {
+                img: "https://play-lh.googleusercontent.com/gRheGVxu9Ygc4lIc71bVSgjGNiZ8d-nraBqGFRm1SV-2CsD-byiqzt_8m8y8tJqyLXc", desc: "Photo & Video Editor",
+                categories: [{ title: "1 Month", items: [{n: "Share", p: 5000, d: "1 Month"}, {n: "Private", p: 10000, d: "1 Month"}] }]
+            },
+            "Canva Pro": { 
+                img: "https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxo4K81Ei7WzcnqEk8W.MgwaH94jRmtJPRlv4F_Z0WGxl4DqVmtd6.Y76H4VGL9nDXhYbs1dM3Ct_E.XEwVjczMY-&format=source", desc: "Lifetime Access", 
+                categories: [{ title: "Lifetime", items: [{n: "Lifetime Access", p: 20000, d: "Lifetime"}] }]
+            },
+            "Paypal": { 
+                img: "https://pnghdpro.com/wp-content/themes/pnghdpro/download/social-media-and-brands/paypal-app-icon.png", desc: "Personal Accounts", 
+                categories: [{ title: "Personal", items: [{n: "1 Account", p: 66000, d: "Life"}] }]
+            },
+            "Wise": { 
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8JBN2JE1SzGCPT3m1a9xEku4fwmsKPwIrQQ&s", desc: "Global Transfer", 
+                categories: [{ title: "Account", items: [{n: "Verified Account", p: 85000, d: "Life"}] }]
+            },
+            "Payoneer": { 
+                img: "https://static.vecteezy.com/system/resources/thumbnails/067/565/482/small_2x/payoneer-logo-rounded-app-icon-free-png.png", desc: "Business Payment", 
+                categories: [{ title: "Account", items: [{n: "Verified Account", p: 95000, d: "Life"}] }]
+            },
+            "Tiktok Japan": {
+                img: "https://iconape.com/wp-content/files/ea/110921/svg/tiktok-icon-black-1.svg", desc: "Japan Region Account",
+                categories: [{ title: "Japan Account", items: [{n: "1 Account", p: 20000, d: "Life"}] }]
+            },
+            "Spotify": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4B9Q87OShMm7Y4KXBY3Zt25fCmjKTElQwhg&s", desc: "Premium Music",
+                categories: [{ title: "2 Months", items: [{n: "1 Device (Private)", p: 32000, d: "2 Months"}, {n: "1 Device (Family)", p: 20000, d: "2 Months"}] }]
+            },
+            "YouTube Premium": {
+                img: "https://www.pngall.com/wp-content/uploads/13/Logo-Youtube-PNG-Images.png", desc: "Ad-Free Video",
+                categories: [{ title: "Private", items: [{n: "1 Month", p: 24000, d: "1 Month"}, {n: "3 Months", p: 34000, d: "3 Months"}] }]
+            },
+            "Zoom": {
+                img: "https://static.vecteezy.com/system/resources/thumbnails/012/871/376/small/zoom-logo-in-blue-colors-meetings-app-logotype-illustration-free-png.png", desc: "Pro Meetings",
+                categories: [{ title: "Private", items: [{n: "1 Device (14 Days)", p: 10000, d: "14 Days"}, {n: "1 Device (1 Month)", p: 15000, d: "1 Month"}] }]
+            },
+            "Telegram Premium": {
+                img: "https://t4.ftcdn.net/jpg/05/33/75/35/360_F_533753588_1krxEE0SDZWl0ZKd9cUzCL6HaTRo9UxK.jpg", desc: "Unlock Features",
+                categories: [
+                    { title: "Login", items: [{n: "1 Month", p: 26000, d: "1 Month"}, {n: "1 Year", p: 143000, d: "1 Year"}]},
+                    { title: "Gift Plan", items: [{n: "3 Months", p: 67500, d: "3 Months"}, {n: "6 Months", p: 89500, d: "6 Months"}, {n: "12 Months", p: 155000, d: "12 Months"}]},
+                    { title: "Link Plan", items: [{n: "3 Months", p: 67500, d: "3 Months"}, {n: "6 Months", p: 88500, d: "6 Months"}, {n: "12 Months", p: 164000, d: "12 Months"}]}
+                ]
+            },
+            "Telegram Boosting": {
+                img: "https://cdn.pixabay.com/photo/2021/12/27/10/50/telegram-6896827_1280.png", desc: "Views & Reactions",
+                categories: [
+                    { title: "Post View", items: [{n: "1,000 Views", p: 1000, d: "One-time"}, {n: "10,000 Views", p: 10000, d: "One-time"}, {n: "100,000 Views", p: 15000, d: "One-time"}]},
+                    { title: "Positive Reactions", items: [{n: "1,000 Reactions", p: 1000, d: "One-time"}, {n: "10,000 Reactions", p: 14000, d: "One-time"}]},
+                    { title: "Negative Reactions", items: [{n: "1,000 Reactions", p: 1000, d: "One-time"}, {n: "10,000 Reactions", p: 14000, d: "One-time"}]},
+                    { title: "Custom Reactions", items: [{n: "1,000 Reactions", p: 2500, d: "One-time"}]},
+                    { title: "Members (30Days Refill)", items: [{n: "1,000 Members", p: 15000, d: "30 Days"}]}
+                ]
+            },
+            "Duolingo Super": {
+                img: "https://i.pinimg.com/736x/7b/ee/b1/7beeb130bec97106dd408c14c2de4cc9.jpg", desc: "Learn Languages",
+                categories: [
+                    { title: "Family Head (Invite 5 Email)", items: [{n: "14 Days", p: 10000, d: "14 Days"}, {n: "1 Month", p: 15000, d: "1 Month"}]},
+                    { title: "Invite Private", items: [{n: "14 Days", p: 5500, d: "14 Days"}, {n: "1 Month", p: 20000, d: "1 Month"}]}
+                ]
+            }
+        };
+
+        let cart = [];
+
+        function initGrid() {
+            const container = document.getElementById('main-grid-container');
+            container.innerHTML = "";
+            Object.keys(categories).forEach(catName => {
+                let catHtml = `<div>
+                    <h2 class="text-blue-500 font-extrabold text-sm uppercase tracking-[0.2em] mb-6 flex items-center gap-3">
+                        <span class="w-8 h-[1px] bg-blue-500/30"></span> ${catName}
+                    </h2>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">`;
+                categories[catName].forEach(prodName => {
+                    const p = products[prodName];
+                    if (p) {
+                        catHtml += `
+                        <div class="app-card p-6 flex flex-col items-center text-center" onclick="openProduct('${prodName}')">
+                            <img src="${p.img}" class="app-icon-img">
+                            <p class="font-bold text-[10px] uppercase tracking-widest">${prodName}</p>
+                        </div>`;
+                    }
+                });
+                catHtml += `</div></div>`;
+                container.innerHTML += catHtml;
+            });
+        }
+
+        function openProduct(name) {
+            const p = products[name];
+            document.getElementById('detail-name').innerText = name;
+            document.getElementById('detail-desc').innerText = p.desc;
+            document.getElementById('detail-img').src = p.img;
+            let html = "";
+            p.categories.forEach((cat, cIdx) => {
+                html += `<div class="mb-8"><h3 class="text-blue-500 font-bold mb-4 text-sm uppercase px-2 tracking-wider">${cat.title}</h3>`;
+                cat.items.forEach((item, iIdx) => {
+                    const id = `${name}-${cIdx}-${iIdx}`.replace(/\s+/g, '-');
+                    const qty = (cart.find(i => i.id === id)?.qty || 0);
+                    html += `<div class="price-row flex justify-between items-center"><div><p class="text-xs font-bold">${item.n}</p><p class="text-blue-400 text-[10px]">${item.p.toLocaleString()} Ks</p></div><div class="flex items-center space-x-5"><button onclick="updateCart('${name}', '${item.n}', ${item.p}, -1, '${id}', '${item.d}')" class="btn-qty"><i class="fas fa-minus text-[10px]"></i></button><span id="view-${id}" class="font-bold text-sm min-w-[20px] text-center">${qty}</span><button onclick="updateCart('${name}', '${item.n}', ${item.p}, 1, '${id}', '${item.d}')" class="btn-qty"><i class="fas fa-plus text-[10px]"></i></button></div></div>`;
+                });
+                html += `</div>`;
+            });
+            document.getElementById('price-container').innerHTML = html;
+            showSlide('product-detail');
+        }
+
+        function updateCart(pName, plan, price, change, id, duration) {
+            const idx = cart.findIndex(i => i.id === id);
+            if (idx > -1) { cart[idx].qty += change; if (cart[idx].qty <= 0) cart.splice(idx, 1); } 
+            else if (change > 0) { cart.push({ id, pName, plan, price, qty: 1, duration }); }
+            const disp = document.getElementById(`view-${id}`);
+            if (disp) disp.innerText = (cart.find(i => i.id === id)?.qty || 0);
+            updateFooter();
+        }
+
+        function updateFooter() {
+            const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+            document.getElementById('footer-total').innerText = total.toLocaleString();
+            document.getElementById('global-checkout-bar').classList.toggle('hidden', cart.length === 0);
+            generateReceipt();
+        }
+
+        function generateReceipt() {
+            let text = "";
+            cart.forEach(item => { text += `- ${item.pName} (${item.duration}) x ${item.qty}\n  Price: ${item.price.toLocaleString()} Ks\n`; });
+            const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+            document.getElementById('receipt-details').innerText = text + "-------------------\nTotal: " + total.toLocaleString() + " Ks";
+        }
+
+        function copyReceipt() {
+            navigator.clipboard.writeText("--- THOMAS DIGITAL ORDER ---\n" + document.getElementById('receipt-details').innerText);
+            const btn = document.getElementById('copy-btn');
+            btn.innerHTML = '<i class="fas fa-check mr-2"></i> Copied!';
+            setTimeout(() => btn.innerHTML = '<i class="fas fa-copy mr-2"></i> Copy Order Info', 2000);
+        }
+
+        function clearCart() { cart = []; updateFooter(); showSlide('shop-main'); }
+
+        function showSlide(id) {
+            ['home', 'shop-main', 'product-detail', 'receipt', 'review', 'note-rules'].forEach(s => {
+                const el = document.getElementById('slide-'+s);
+                if(el) el.classList.add('hidden');
+            });
+            const target = document.getElementById('slide-'+id);
+            if(target) target.classList.remove('hidden');
+            window.scrollTo(0,0);
+        }
+
+        function generateReviews() {
+            const reviewData = [{name: "Kyaw Kyaw", text: "အရမ်းမြန်တယ် အဆင်ပြေတယ်"}, {name: "Su Myat", text: "ယုံကြည်စိတ်ချရတဲ့ admin ပါ"}];
+            let html = "";
+            reviewData.forEach(r => {
+                html += `<div class="glass p-6 rounded-3xl border-white/5">
+                    <div class="flex justify-between mb-3"><span class="text-blue-400 font-bold text-[13px]">${r.name}</span><span class="text-yellow-500 text-[10px]"><i class="fas fa-star"></i> 5.0</span></div>
+                    <p class="text-gray-400 text-[12px] font-medium">"${r.text}"</p>
+                </div>`;
+            });
+            document.getElementById('reviews-container').innerHTML = html;
+        }
+
+        const voidC = document.getElementById('void');
+        for (let i = 0; i < 120; i++) {
+            const s = document.createElement('div');
+            s.className = 'star';
+            s.style.width = Math.random() * 2.5 + 'px'; s.style.height = s.style.width;
+            s.style.top = Math.random() * 100 + '%'; s.style.left = Math.random() * 100 + '%';
+            s.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
+            voidC.appendChild(s);
+        }
+
+        initGrid();
+        generateReviews();
+    </script>
+</body>
+</html>
