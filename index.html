@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thomas Digital Shop | Premium Myanmar</title>
+    <link rel="icon" type="image/png" href="ThomasDigitalShop.jpg">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -42,6 +43,42 @@
         @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.3); opacity: 0.7; } 100% { transform: scale(1); opacity: 1; } }
         
         .cat-tag { font-size: 9px; padding: 4px 10px; border-radius: 20px; background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+
+        .footer-link { 
+    color: #9ca3af; 
+    transition: 0.3s; 
+}
+
+.footer-link:hover { 
+    color: #ffffff; 
+}
+
+.footer-title {
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.footer-small-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.footer-divider {
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-logo-box {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    object-fit: cover;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
     </style>
 </head>
 <body>
@@ -185,6 +222,9 @@
         </section>
     </main>
 
+
+    <div id="global-checkout-bar" class="hidden persistent-footer"></div>
+
     <div id="global-checkout-bar" class="hidden persistent-footer">
         <div class="max-w-2xl mx-auto glass p-4 rounded-[30px] flex justify-between items-center border-blue-500/20 shadow-2xl">
             <div class="flex items-center gap-6 px-4">
@@ -202,14 +242,20 @@
 
     <script>
         const categories = {
-            "AI Tools": ["ChatGPT", "Gemini Veo3", "Perplexity AI", "NOTE BOOK LM"],
+            "AI Tools": ["ChatGPT", "Gemini Veo3", "Perplexity AI", "NOTE BOOK LM", "Grammarly AI", "Flow AI"],
             "VPN": ["Express VPN", "Outline VPN", "V2Box - Vray", "NordVpn", "Surfshark Vpn", "HMA VPN"],
-            "Editing APPS": ["Capcut Pro", "Alight Motion", "Canva Pro", "Piscart", "Remini"],
+            "Editing APPS": ["Capcut Pro", "Alight Motion", "Canva Pro", "Piscart", "Remini", "Meitu", "VSCO", "PhotoRoom", "Inshot"],
             "Design & Enhancement": ["Wink"],
             "Global Payments APPS": ["Paypal", "Wise", "Payoneer"],
-            "Social & Media": ["Tiktok Japan", "Spotify", "YouTube Premium", "Zoom"],
+            "Streaming Services": ["Netflix", "HBO Max", "Crunchyroll", "GAGAOOLALA", "BSTATION"],
+            "Music Streaming": ["Spotify", "YouTube Premium", "Apple Music", "Qobuz"],
+            "Communication & Meetings": ["Zoom"],
             "Telegram & Storage": ["Telegram Premium", "Telegram Boosting", "TeraBox"],
-            "Education": ["Duolingo Super" , "Coursera"],
+            "Cloud Storage": ["Google Drive", "Google One"],
+            "Education": ["Duolingo Super", "Coursera"],
+            "Reading Platforms": ["SCRIBD", "Wattpad"],
+            "Software & Productivity": ["Windows License", "Microsoft 365", "WPS Office"],
+            "Social & Media": ["Tiktok Japan"],
             "Adobe Suite": ["Adobe Creative Cloud", "Photoshop Web", "Lightroom", "Adobe Premiere Pro", "Adobe Illustrator", "Adobe After Effects", "Adobe Acrobat Pro", "Adobe InDesign", "Adobe Audition", "Adobe Animate", "Adobe Dreamweaver", "Adobe Bridge", "Adobe Express", "Adobe Capture", "Adobe Aero", "Adobe Fonts", "Adobe Fresco", "Adobe Media Encoder", "Adobe Character Animator", "Adobe Firefly"],
         };
 
@@ -259,13 +305,28 @@
             "Gemini Veo3": { 
                 img: "https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/gemini-color.png", desc: "Google AI Advanced", 
                 categories: [
-                    { title: "Private (2TB Storage)", items: [{n: "1 Month", p: 140000, d: "1 Month"}, {n: "3 Months", p: 24000, d: "3 Months"}]},
+                    { title: "Private (2TB Storage)", items: [{n: "1 Month", p: 14000, d: "1 Month"}, {n: "3 Months", p: 24000, d: "3 Months"}]},
                     { title: "Own Mail", items: [{n: "1 Month", p: 20000, d: "1 Month"}, {n: "3 Months", p: 31000, d: "3 Months"}]}
                 ]
             },
             "Perplexity AI": { 
                 img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuJtpuSPxCai6OZE-p61Ivmz9A_QSa414g7Q&s", desc: "AI Search Engine", 
                 categories: [{ title: "1 Month", items: [{n: "1 Device (Share)", p: 14000, d: "1 Month"}, {n: "1 Device (Private)", p: 25000, d: "1 Month"}, {n: "1 Device (Own Mail)", p: 33000, d: "1 Month"}] }]
+            },
+            "NOTE BOOK LM": {
+                img: "https://www.cnet.com/a/img/resize/0e5fad643e56dd9bdc4e7c22c4347e37a81b5489/hub/2025/09/17/fade4539-606f-4ba0-a502-4cb0447ce68f/notebooklm-logo-custom.jpg?auto=webp&fit=crop&height=1200&width=1200", desc: "AI Note Taking",
+                categories: [{ title: "OwnMail Invite", items: [{n: "Powered By GoogleOne Gemini (3 Months)", p: 17000, d: "3 Months"}] }]
+            },
+            "Grammarly AI": {
+                img: "https://img.icons8.com/color/1200/grammarly.jpg", desc: "AI Writing Assistant",
+                categories: [{ title: "Share Plan", items: [{n: "1 Month", p: 15000, d: "1 Month"}] }]
+            },
+            "Flow AI": {
+                img: "https://play-lh.googleusercontent.com/kmFu6XMfAt0K3G7VdmBMuNXw6qRu1IyhxSTFKLWTyS3l7by4gRa92IaEb76Xuz2J8Q=w240-h480-rw", desc: "AI Productivity",
+                categories: [
+                    { title: "OwnMail Invite", items: [{n: "Powered By GoogleOne Gemini (3 Months)", p: 20000, d: "3 Months"}]},
+                    { title: "Private", items: [{n: "Powered By GoogleOne Gemini (3 Months)", p: 25000, d: "3 Months"}]}
+                ]
             },
             "Wink": {
                 img: "https://cdn.aptoide.com/imgs/e/5/2/e52547ffd8d39f876386429331e7da38_icon.png", desc: "AI Video Enhancement",
@@ -282,9 +343,39 @@
                     { title: "Private Plan", items: [{n: "1 Month (Web)", p: 15000, d: "1 Month"}]}
                 ]
             },
+            "Meitu": {
+                img: "https://play-lh.googleusercontent.com/Y1oUzw0lE2yGMNstaouhf_W5VomVovORkMirRP8wv89V8ehUgt2LliwQp8n59THmihI=w240-h480-rw", desc: "Photo Beautifier",
+                categories: [
+                    { title: "Private", items: [{n: "20 Days", p: 10000, d: "20 Days"}]},
+                    { title: "Share", items: [{n: "20 Days", p: 10000, d: "20 Days"}]}
+                ]
+            },
+            "VSCO": {
+                img: "https://play-lh.googleusercontent.com/RdCklOFg3SLN5QF8OR7cU-5bs1ESYo_pqGYrK2ena3XZDcrLOpjf7vLtNQELOR7Uo4MH", desc: "Photo & Video Editor",
+                categories: [{ title: "Share Plan", items: [{n: "1 Year", p: 15000, d: "1 Year"}] }]
+            },
+            "PhotoRoom": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2InRMXPTqdapiBmTXYel2H-i_3nkh_A4tuA&s", desc: "Background Remover",
+                categories: [{ title: "Share Plan", items: [{n: "1 Year", p: 15000, d: "1 Year"}] }]
+            },
+            "Inshot": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFdEtk-heN3nneJsEDiWZULSPnOvUoXG8sAg&s", desc: "Video Editor Pro",
+                categories: [{ title: "Lifetime Premium", items: [{n: "Lifetime", p: 25000, d: "Lifetime"}] }]
+            },
             "TeraBox": {
                 img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlR2O1VJffzz2q3Njwsi6UKllFaBeoDGByCg&s", desc: "Cloud Storage",
                 categories: [{ title: "Sharing Plan", items: [{n: "1 Year (2TB)", p: 25000, d: "1 Year"}] }]
+            },
+            "Google Drive": {
+                img: "https://static.vecteezy.com/system/resources/previews/017/395/378/non_2x/google-drive-icons-free-png.png", desc: "Cloud Storage by Google",
+                categories: [{ title: "Private Lifetime", items: [{n: "1000GB", p: 55000, d: "Lifetime"}] }]
+            },
+            "Google One": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt7JDhEvrGH_YyBH28xbKCYa1sSEQ1Crrcdw&s", desc: "Premium Google Storage",
+                categories: [
+                    { title: "OwnMail Invite", items: [{n: "3 Months (2000GB with Veo3 Gemini AI)", p: 20000, d: "3 Months"}]},
+                    { title: "Private", items: [{n: "3 Months (2000GB with Veo3 Gemini AI)", p: 25000, d: "3 Months"}]}
+                ]
             },
             "Capcut Pro": { 
                 img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTitBmejj75sDxuPXgG5HAaO629PwWW0ygn7g&s", desc: "Pro Video Editor", 
@@ -305,17 +396,83 @@
                 img: "https://images-eds-ssl.xboxlive.com/image?url=4rt9.lXDC4H_93laV1_eHHFT949fUipzkiFOBH3fAiZZUCdYojwUyX2aTonS1aIwMrx6NUIsHfUHSLzjGJFxxo4K81Ei7WzcnqEk8W.MgwaH94jRmtJPRlv4F_Z0WGxl4DqVmtd6.Y76H4VGL9nDXhYbs1dM3Ct_E.XEwVjczMY-&format=source", desc: "Lifetime Access", 
                 categories: [{ title: "Lifetime", items: [{n: "Lifetime Access", p: 20000, d: "Lifetime"}] }]
             },
+            "Windows License": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0VbrUXprjumtUK5EQjK_iZztLkp_Llie6JA&s", desc: "Windows OS License",
+                categories: [
+                    { title: "Redeem Key", items: [
+                        {n: "Windows 10 Pro", p: 26000, d: "Lifetime"},
+                        {n: "Windows 11 Pro", p: 27000, d: "Lifetime"}
+                    ]}
+                ]
+            },
+            "Microsoft 365": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr50BRoySBgG_KldW4BAnidhU4pLPNvpcaJw&s", desc: "Office Suite",
+                categories: [
+                    { title: "Individual", items: [{n: "1 Month", p: 15000, d: "1 Month"}]},
+                    { title: "Invite with Email", items: [{n: "1 Month", p: 17000, d: "1 Month"}]},
+                    { title: "Family Head", items: [{n: "Can Invite 5 Email (1 Month)", p: 18000, d: "1 Month"}]}
+                ]
+            },
+            "WPS Office": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrgWEsVJSJ81Z6kWr9FtpWaG3MdhU4FM5vCA&s", desc: "Office Suite Pro",
+                categories: [
+                    { title: "Sharing Pro", items: [
+                        {n: "1 Month", p: 18000, d: "1 Month"},
+                        {n: "1 Year", p: 54500, d: "1 Year"}
+                    ]}
+                ]
+            },
+            "Netflix": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK-b-GRJP49S_nvl8UDCQ2DDusVBUmQcN1Ug&s", desc: "Streaming Service",
+                categories: [
+                    { title: "1 Profile UHD 4K", items: [
+                        {n: "Semiprivate 2 Devices (1 Month)", p: 25000, d: "1 Month"},
+                        {n: "Semiprivate 2 Devices (2 Months)", p: 33000, d: "2 Months"},
+                        {n: "Semiprivate 2 Devices (3 Months)", p: 50000, d: "3 Months"}
+                    ]},
+                    { title: "1 Profile FHD 1080P", items: [
+                        {n: "Semiprivate 2 Devices (1 Month)", p: 24000, d: "1 Month"}
+                    ]},
+                    { title: "Whole Account UHD 4K", items: [
+                        {n: "5 Profiles (1 Month)", p: 66000, d: "1 Month"}
+                    ]}
+                ]
+            },
+            "HBO Max": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRCfdA-wUrILQ5j73fcHd_nQpE2b8ANgwkTA&s", desc: "Premium Streaming",
+                categories: [
+                    { title: "HBO MAX ULTIMATE", items: [
+                        {n: "1 Month 1P 2U", p: 18000, d: "1 Month"},
+                        {n: "Semiprivate", p: 25000, d: "1 Month"}
+                    ]},
+                    { title: "Private Whole Account", items: [
+                        {n: "5 Profile (1 Month)", p: 55000, d: "1 Month"}
+                    ]}
+                ]
+            },
+            "Crunchyroll": {
+                img: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Crunchyroll_logo_.webp", desc: "Anime Streaming",
+                categories: [{ title: "Share", items: [{n: "9 Months", p: 40000, d: "9 Months"}] }]
+            },
+            "GAGAOOLALA": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF07ARC7VHnS-Q9c_guksEMlPAOg3CSmWFjQ&s", desc: "LGBTQ+ Streaming",
+                categories: [{ title: "Private", items: [{n: "1 Month", p: 15000, d: "1 Month"}] }]
+            },
+            "BSTATION": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX1gVMgJxjUTEOzqcbPOxom5UaRFZGMaA5hw&s", desc: "Anime & Entertainment",
+                categories: [{ title: "Private", items: [{n: "1 Month", p: 25000, d: "1 Month"}] }]
+            },
             "Paypal": { 
                 img: "https://pnghdpro.com/wp-content/themes/pnghdpro/download/social-media-and-brands/paypal-app-icon.png", desc: "Personal Accounts", 
-                categories: [{ title: "Personal", items: [{n: "Normal Account", p: 66000, d: "Life"}, {n: "VISA Account", p: 180000, d: "Life"}, {n: "ID Verified Account", p: 240000, d: "Life"}, {n: "ID Verified + VISA Account", p: 360000, d: "Life"} ] }]
+                categories: [{ title: "Personal", items: [{n: "Normal Account", p: 66000, d: "Life"}, {n: "VISA Account", p: 180000, d: "Life"}, {n: "ID Verified Account", p: 240000, d: "Life"}, {n: "ID Verified with VISA Account", p: 360000, d: "Life"} ] }]
             },
             "Wise": { 
                 img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8JBN2JE1SzGCPT3m1a9xEku4fwmsKPwIrQQ&s", desc: "Global Transfer", 
-                categories: [{ title: "Account", items: [{n: "Verified Account", p: 85000, d: "Life"}] }]
+                categories: [{ title: "Account", items: [{n: "Verified Account", p: 888000, d: "Life"}] }]
             },
             "Payoneer": { 
                 img: "https://static.vecteezy.com/system/resources/thumbnails/067/565/482/small_2x/payoneer-logo-rounded-app-icon-free-png.png", desc: "Business Payment", 
-                categories: [{ title: "Account", items: [{n: "Verified Account", p: 95000, d: "Life"}] }]
+                categories: [{ title: "Account", items: [{n: "Verified Account", p: 2550000, d: "Life"}] }]
             },
             "Tiktok Japan": {
                 img: "https://iconape.com/wp-content/files/ea/110921/svg/tiktok-icon-black-1.svg", desc: "Japan Region Account",
@@ -324,6 +481,14 @@
             "Spotify": {
                 img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4B9Q87OShMm7Y4KXBY3Zt25fCmjKTElQwhg&s", desc: "Premium Music",
                 categories: [{ title: "2 Months", items: [{n: "1 Device (Private)", p: 32000, d: "2 Months"}, {n: "1 Device (Family)", p: 20000, d: "2 Months"}] }]
+            },
+            "Apple Music": {
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Apple_Music_icon.svg/500px-Apple_Music_icon.svg.png", desc: "Premium Music Streaming",
+                categories: [{ title: "Individual Plan", items: [{n: "1 Month (Can Renew)", p: 15500, d: "1 Month"}] }]
+            },
+            "Qobuz": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_QBM05L9d0WLr4HPpIwsXTZ7rVXNOxAKD8w&s", desc: "Hi-Res Music Streaming",
+                categories: [{ title: "Individual Plan", items: [{n: "1 Month", p: 18000, d: "1 Month"}] }]
             },
             "YouTube Premium": {
                 img: "https://www.pngall.com/wp-content/uploads/13/Logo-Youtube-PNG-Images.png", desc: "Ad-Free Video",
@@ -351,6 +516,21 @@
                     { title: "Members (30Days Refill)", items: [{n: "1,000 Members", p: 15000, d: "30 Days"}]}
                 ]
             },
+            "SCRIBD": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2xl2we0chY4h1fIqZIP99slMKR5uT4UZD6A&s", desc: "Unlimited Reading",
+                categories: [{ title: "Private", items: [{n: "2 Months", p: 18000, d: "2 Months"}] }]
+            },
+            "Wattpad": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqEKeog1WruOP3CK3g9eCggL5wbpENzUHjzA&s", desc: "Story Reading Platform",
+                categories: [
+                    { title: "Sharing", items: [
+                        {n: "1 Month", p: 10000, d: "1 Month"},
+                        {n: "3 Months", p: 15000, d: "3 Months"},
+                        {n: "6 Months", p: 20000, d: "6 Months"},
+                        {n: "1 Year", p: 25000, d: "1 Year"}
+                    ]}
+                ]
+            },
             "Duolingo Super": {
                 img: "https://i.pinimg.com/736x/7b/ee/b1/7beeb130bec97106dd408c14c2de4cc9.jpg", desc: "Learn Languages",
                 categories: [
@@ -358,152 +538,132 @@
                     { title: "Invite Private", items: [{n: "14 Days", p: 5500, d: "14 Days"}, {n: "1 Month", p: 20000, d: "1 Month"}]}
                 ]
             },
-
             "Coursera": {
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Coursera-Logo_600x600.svg/500px-Coursera-Logo_600x600.svg.png",
-    desc: "Online Courses & Certificates",
-    categories: [
-        { title: "Premium Plans", items: [
-            {n: "1 Year Premium (Warranty)", p: 130000, d: "1 Year"},
-            {n: "6 Months Premium (Warranty)", p: 80000, d: "6 Months"}
-        ]},
-        { title: "Discount Plan", items: [
-            {n: "76 Courses Access (1 Year)", p: 55000, d: "1 Year"}
-        ]}
-    ]
-},
-                        "Adobe Creative Cloud": {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTKJZvva8td2jSpyQRcmgIUt2IqVWystJGDw&s",
-    desc: "Full Adobe Package",
-    categories: [
-        { title: "Private Plan", items: [
-            {n: "Private 4 Months", p: 40000, d: "4 Months"},
-            {n: "Own Mail Private 4 Months", p: 45000, d: "4 Months"}
-        ]}
-    ]
-},
-
-"Photoshop Web": {
-    img: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",
-    desc: "Web Photoshop",
-    categories: [
-        { title: "Private", items: [
-            {n: "12 Months", p: 20000, d: "12 Months"}
-        ]}
-    ]
-},
-
-"Lightroom": {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWfGsNzhTiuBNUcVd1xRP0dRuSgCfQE92BYg&s",
-    desc: "Photo Editing",
-    categories: [
-        { title: "Share Plan", items: [
-            {n: "1 Year", p: 20000, d: "1 Year"}
-        ]}
-    ]
-},
-
-"Adobe Premiere Pro": {
-    img: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg",
-    desc: "Video Editing",
-    categories: [{ title: "Private", items: [{n: "4 Months", p: 20000, d: "4 Months"}] }]
-},
-
-"Adobe Illustrator": {
-    img: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg",
-    desc: "Vector Design",
-    categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
-},
-
-"Adobe After Effects": {
-    img: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg",
-    desc: "Motion Graphics",
-    categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
-},
-
-"Adobe Acrobat Pro": {
-    img: "https://store-images.s-microsoft.com/image/apps.16022.76bd76a9-dd08-45af-8fbb-83136361ba29.53e3d20a-d38e-4fda-b83d-edd73022f860.f5996c3f-1dfa-47e3-87d9-31482c013f19.png",
-    desc: "PDF Tools",
-    categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
-},
-
-"Adobe InDesign": {
-    img: "https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg",
-    desc: "Layout Design",
-    categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
-},
-
-"Adobe Audition": {
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Adobe_Audition_CC_icon_%282020%29.svg/960px-Adobe_Audition_CC_icon_%282020%29.svg.png",
-    desc: "Audio Editing",
-    categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
-},
-
-"Adobe Animate": {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5YMzAD_LvhMl3avnxixI2SX_noq8Az0ho0w&s",
-    desc: "Animation",
-    categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
-},
-
-"Adobe Dreamweaver": {
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Adobe_Dreamweaver_CC_icon.svg/960px-Adobe_Dreamweaver_CC_icon.svg.png",
-    desc: "Web Dev",
-    categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
-},
-
-"Adobe Bridge": {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9srGE-wctW4nZmVPgTxPB5POyKXNuZgttvw&s",
-    desc: "Asset Manager",
-    categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
-},
-
-"Adobe Express": {
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Adobe_Express_logo_RGB_1024px.png/500px-Adobe_Express_logo_RGB_1024px.png",
-    desc: "Quick Design",
-    categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
-},
-
-"Adobe Capture": {
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Adobe_Capture_CC_2026_icon.svg/3840px-Adobe_Capture_CC_2026_icon.svg.png",
-    desc: "Design Tools",
-    categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
-},
-
-"Adobe Aero": {
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Adobe_Aero_icon_%282021%29.svg/250px-Adobe_Aero_icon_%282021%29.svg.png",
-    desc: "AR Design",
-    categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
-},
-
-"Adobe Fonts": {
-    img: "https://cdn-icons-png.flaticon.com/512/5968/5968385.png",
-    desc: "Fonts Library",
-    categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
-},
-
-"Adobe Fresco": {
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Adobe_Fresco_CC_icon.svg/960px-Adobe_Fresco_CC_icon.svg.png",
-    desc: "Drawing",
-    categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
-},
-
-"Adobe Media Encoder": {
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Adobe_Media_Encoder_Icon.svg/3840px-Adobe_Media_Encoder_Icon.svg.png",
-    desc: "Rendering",
-    categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
-},
-
-"Adobe Character Animator": {
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Adobe_Character_Animator_icon_%282020%29.svg/960px-Adobe_Character_Animator_icon_%282020%29.svg.png",
-    desc: "Animation Tool",
-    categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
-},
-
-"Adobe Firefly": {
-    img: "https://play-lh.googleusercontent.com/pVDW3ZCnuK9DKm1w6P3ux1b3SiqnLu5xfUabSqKrGFYKBhAU1sE9SvT477rvHegFQZRDYXRS11k3Sz_Hu-mCIrw",
-    desc: "AI Design",
-    categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
-},
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Coursera-Logo_600x600.svg/500px-Coursera-Logo_600x600.svg.png",
+                desc: "Online Courses & Certificates",
+                categories: [
+                    { title: "Premium Plans", items: [
+                        {n: "1 Year Premium (Warranty)", p: 130000, d: "1 Year"},
+                        {n: "6 Months Premium (Warranty)", p: 80000, d: "6 Months"}
+                    ]},
+                    { title: "Discount Plan", items: [
+                        {n: "76 Courses Access (1 Year)", p: 55000, d: "1 Year"}
+                    ]}
+                ]
+            },
+            "Adobe Creative Cloud": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTKJZvva8td2jSpyQRcmgIUt2IqVWystJGDw&s",
+                desc: "Full Adobe Package",
+                categories: [
+                    { title: "Private Plan", items: [
+                        {n: "Private 4 Months", p: 40000, d: "4 Months"},
+                        {n: "Own Mail Private 4 Months", p: 45000, d: "4 Months"}
+                    ]}
+                ]
+            },
+            "Photoshop Web": {
+                img: "https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",
+                desc: "Web Photoshop",
+                categories: [
+                    { title: "Private", items: [
+                        {n: "12 Months", p: 20000, d: "12 Months"}
+                    ]}
+                ]
+            },
+            "Lightroom": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWfGsNzhTiuBNUcVd1xRP0dRuSgCfQE92BYg&s",
+                desc: "Photo Editing",
+                categories: [
+                    { title: "Share Plan", items: [
+                        {n: "1 Year", p: 20000, d: "1 Year"}
+                    ]}
+                ]
+            },
+            "Adobe Premiere Pro": {
+                img: "https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg",
+                desc: "Video Editing",
+                categories: [{ title: "Private", items: [{n: "4 Months", p: 20000, d: "4 Months"}] }]
+            },
+            "Adobe Illustrator": {
+                img: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg",
+                desc: "Vector Design",
+                categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
+            },
+            "Adobe After Effects": {
+                img: "https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg",
+                desc: "Motion Graphics",
+                categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
+            },
+            "Adobe Acrobat Pro": {
+                img: "https://store-images.s-microsoft.com/image/apps.16022.76bd76a9-dd08-45af-8fbb-83136361ba29.53e3d20a-d38e-4fda-b83d-edd73022f860.f5996c3f-1dfa-47e3-87d9-31482c013f19.png",
+                desc: "PDF Tools",
+                categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
+            },
+            "Adobe InDesign": {
+                img: "https://upload.wikimedia.org/wikipedia/commons/4/48/Adobe_InDesign_CC_icon.svg",
+                desc: "Layout Design",
+                categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
+            },
+            "Adobe Audition": {
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Adobe_Audition_CC_icon_%282020%29.svg/960px-Adobe_Audition_CC_icon_%282020%29.svg.png",
+                desc: "Audio Editing",
+                categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
+            },
+            "Adobe Animate": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5YMzAD_LvhMl3avnxixI2SX_noq8Az0ho0w&s",
+                desc: "Animation",
+                categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
+            },
+            "Adobe Dreamweaver": {
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Adobe_Dreamweaver_CC_icon.svg/960px-Adobe_Dreamweaver_CC_icon.svg.png",
+                desc: "Web Dev",
+                categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
+            },
+            "Adobe Bridge": {
+                img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9srGE-wctW4nZmVPgTxPB5POyKXNuZgttvw&s",
+                desc: "Asset Manager",
+                categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
+            },
+            "Adobe Express": {
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Adobe_Express_logo_RGB_1024px.png/500px-Adobe_Express_logo_RGB_1024px.png",
+                desc: "Quick Design",
+                categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
+            },
+            "Adobe Capture": {
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Adobe_Capture_CC_2026_icon.svg/3840px-Adobe_Capture_CC_2026_icon.svg.png",
+                desc: "Design Tools",
+                categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
+            },
+            "Adobe Aero": {
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Adobe_Aero_icon_%282021%29.svg/250px-Adobe_Aero_icon_%282021%29.svg.png",
+                desc: "AR Design",
+                categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
+            },
+            "Adobe Fonts": {
+                img: "https://cdn-icons-png.flaticon.com/512/5968/5968385.png",
+                desc: "Fonts Library",
+                categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
+            },
+            "Adobe Fresco": {
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Adobe_Fresco_CC_icon.svg/960px-Adobe_Fresco_CC_icon.svg.png",
+                desc: "Drawing",
+                categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
+            },
+            "Adobe Media Encoder": {
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Adobe_Media_Encoder_Icon.svg/3840px-Adobe_Media_Encoder_Icon.svg.png",
+                desc: "Rendering",
+                categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
+            },
+            "Adobe Character Animator": {
+                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Adobe_Character_Animator_icon_%282020%29.svg/960px-Adobe_Character_Animator_icon_%282020%29.svg.png",
+                desc: "Animation Tool",
+                categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
+            },
+            "Adobe Firefly": {
+                img: "https://play-lh.googleusercontent.com/pVDW3ZCnuK9DKm1w6P3ux1b3SiqnLu5xfUabSqKrGFYKBhAU1sE9SvT477rvHegFQZRDYXRS11k3Sz_Hu-mCIrw",
+                desc: "AI Design",
+                categories: [{ title: "Private", items: [{n: "4 Months", p: 40000, d: "4 Months"}] }]
+            },
         };
 
         let cart = [];
@@ -569,7 +729,7 @@
 
         function generateReceipt() {
             let text = "";
-            cart.forEach(item => { text += `- ${item.pName} (${item.duration}) x ${item.qty}\n  Price: ${item.price.toLocaleString()} Ks\n`; });
+            cart.forEach(item => { text += `${item.pName} (${item.duration}) x ${item.qty}\n  Price: ${item.price.toLocaleString()} Ks\n`; });
             const total = cart.reduce((s, i) => s + (i.price * i.qty), 0);
             document.getElementById('receipt-details').innerText = text + "-------------------\nTotal: " + total.toLocaleString() + " Ks";
         }
