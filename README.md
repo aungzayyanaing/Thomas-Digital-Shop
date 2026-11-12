@@ -6,23 +6,24 @@ Live site: https://thomasdigitalshop.vercel.app/
 
 ## What the site is
 
-A single-page website (`index.html`) presenting Thomas Digital Shop's digital products. Visitors can browse products by category, search, view a product's plans and price, choose a quantity, and see a total in Myanmar kyat (Ks).
+A single-page website (`index.html`) presenting Thomas Digital Shop's digital products. Visitors can browse products by category, view a product's plans and price, choose a quantity, and see a total in Myanmar kyat (Ks).
 
 ## What it lists
 
 Categories and products shown on the site include:
 
-- **AI tools:** ChatGPT, Gemini Veo3, Claude AI, Grok, Perplexity, Leonardo, Midjourney, and others
+- **AI tools:** ChatGPT, Gemini Veo3, Claude AI, Grok, Perplexity, Leonardo, and others
 - **VPN:** Express VPN, NordVPN, Surfshark VPN
-- **PC software:** Microsoft 365, Windows 11 Pro, IDM, and others
-- **Editing apps:** CapCut Pro, KineMaster Pro, Alight Motion, and others
-- **Design tools:** Canva Pro, Figma Pro
+- **PC software:** Internet Download Manager, Filmora 14, DaVinci Resolve Studio 19 2024, and others
+- **Software and productivity:** Microsoft 365, Windows License, Replit, and others
+- **Editing apps:** CapCut Pro, Canva Pro, Alight Motion, and others
+- **Design tools:** Wink
 - **Streaming and music:** Netflix, YouTube Premium, Spotify, Apple Music
-- **Social and communication:** Telegram Premium, Facebook Star, TikTok Coin, WhatsApp Business
-- **Storage and cloud:** Google One, iCloud+, OneDrive
-- **Education and reading:** Duolingo, Coursera, Kindle Unlimited, Scribd
-- **Adobe:** Adobe Creative Cloud, Photoshop, Illustrator, Premiere Pro, After Effects
-- **Payments:** PayPal, Wise, Payoneer, WebMoney
+- **Social and communication:** Telegram Premium, TikTok Japan, Zoom
+- **Storage and cloud:** Google One, Google Drive, TeraBox
+- **Education and reading:** Duolingo Super, Coursera, Scribd, Wattpad
+- **Adobe:** Adobe Creative Cloud, Photoshop Web, Illustrator, Premiere Pro, After Effects
+- **Payments:** PayPal, Wise, Payoneer
 
 Prices are shown on the site in Myanmar kyat (Ks) and vary by product and plan. Check the live site for current prices.
 
@@ -51,7 +52,7 @@ No build step is needed. Open `index.html` in a browser, or serve the folder wit
 ## Files in this repository
 
 - `index.html` — the whole single-page site
-- `ThomasDigitalShop.jpg` — the shop image referenced by the site (favicon and social preview image)
+- `ThomasDigitalShop.jpg` — the shop image referenced by the site (favicon)
 - `LICENSE` — MIT License
 - `README.md` — this file
 
