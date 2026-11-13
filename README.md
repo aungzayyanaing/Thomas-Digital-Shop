@@ -14,7 +14,7 @@ Categories and products shown on the site include:
 
 - **AI tools:** ChatGPT, Gemini Veo3, Claude AI, Grok, Perplexity, Leonardo, and others
 - **VPN:** Express VPN, NordVPN, Surfshark VPN
-- **PC software:** Internet Download Manager, Filmora 14, DaVinci Resolve Studio 19 2024, and others
+- **PC software:** Internet Download Manager, Filmora 14, DaVinci Resolve Studio 19 2024, Edius Pro 2019, and others
 - **Software and productivity:** Microsoft 365, Windows License, Replit, and others
 - **Editing apps:** CapCut Pro, Canva Pro, Alight Motion, and others
 - **Design tools:** Wink
@@ -22,7 +22,7 @@ Categories and products shown on the site include:
 - **Social and communication:** Telegram Premium, TikTok Japan, Zoom
 - **Storage and cloud:** Google One, Google Drive, TeraBox
 - **Education and reading:** Duolingo Super, Coursera, Scribd, Wattpad
-- **Adobe:** Adobe Creative Cloud, Photoshop Web, Illustrator, Premiere Pro, After Effects
+- **Adobe:** Adobe Creative Cloud, Photoshop Web, Illustrator, Premiere Pro, After Effects, Adobe InDesign
 - **Payments:** PayPal, Wise, Payoneer
 
 Prices are shown on the site in Myanmar kyat (Ks) and vary by product and plan. Check the live site for current prices.
